@@ -1,0 +1,17 @@
+<div>
+    <form (submit)="onSubmit(accountForm)" class="example-form" #accountForm="ngForm">
+        <mat-form-field class="example-full-width" appearance="fill">
+            <mat-label>Account Number</mat-label>
+            <input #accountNumber="ngModel" minlength="2" required type="number" name="accountNumber" matInput
+                placeholder="Voter ID" ngModel>
+            <mat-error *ngIf="accountNumber.invalid">account number must be filled</mat-error>
+        </mat-form-field>
+        <button type="submit" mat-raised-button color="primary">get account actions</button>
+    </form>
+</div>
+<div *ngIf="actionsResult">
+    <h1>{{actionsResult[0].account_number}}</h1>
+    <div class="divStyle" *ngFor="let r of actionsResult">
+        <p>amount: {{r.actionType | json}}</p>
+    </div>
+</div>

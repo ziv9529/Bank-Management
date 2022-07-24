@@ -1,0 +1,26 @@
+<h1>actions!</h1>
+
+
+<form [formGroup]="actionform" (ngSubmit)="submit()">
+    <div class="form-group">
+        <label for="accounNumber">accounNumber:</label>
+        <input (change)="updateAccountNumber(this.actionform.value.accounNumber)" formControlName="accounNumber"
+            type="number">
+        <label for="action">Action:</label>
+        <select (change)="changeAction(this.actionform.value.action)" formControlName="action" class="form-control">
+            <option disabled>Select Action</option>
+            <option>Choose Action</option>
+            <option *ngFor="let action of actions">{{action}}</option>
+        </select>
+    </div>
+    <div *ngIf="!isLoan(currentAction)">
+        {{currentAction}}
+        <app-action-in-account [currentAccount]="currentAccount" [currentAction]="currentAction">
+        </app-action-in-account>
+    </div>
+    <div *ngIf="isLoan(currentAction)">
+        {{currentAction}}
+        <app-loan></app-loan>
+    </div>
+    <!-- <button class="btn btn-primary" type="submit" [disabled]="!actionform.valid">Submit</button> -->
+</form>

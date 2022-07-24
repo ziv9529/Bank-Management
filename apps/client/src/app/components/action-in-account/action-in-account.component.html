@@ -1,0 +1,10 @@
+<form (submit)="onSubmit(actionForm)" class="example-form" #actionForm="ngForm">
+    <mat-form-field class="example-full-width" appearance="fill">
+        <mat-label>amount</mat-label>
+        <input #amount="ngModel" min="1" required type="number" name="amount" matInput placeholder="amount" ngModel>$
+        <mat-error *ngIf="amount.invalid">amount must be filled and minimum 1$</mat-error>
+    </mat-form-field>
+    <button type="submit" mat-raised-button color="primary"> save {{currentAction}} ! </button>
+</form>
+
+<!-- (submit)="onSubmit(accountForm)"  -->
