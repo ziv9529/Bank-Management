@@ -1,4 +1,12 @@
 body {
     margin: 10px;
     padding: 10px;
+    margin: auto;
+    background-color: red;
+
+}
+
+.navBtn {
+    margin-right: 10px;
+    margin-bottom: 15px;
 }

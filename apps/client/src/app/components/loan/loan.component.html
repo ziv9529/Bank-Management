@@ -1,1 +1,25 @@
-<p>loan works!</p>
+<form (submit)="onLoanSubmit(loanForm)" class="example-form" #loanForm="ngForm">
+    <mat-form-field class="example-full-width" appearance="fill">
+        <mat-label>Amount $</mat-label>
+        <input class="inputTag" #amount="ngModel" min="1" required type="number" name="amount" matInput
+            placeholder="Amount $" ngModel>
+        <mat-error *ngIf="amount.invalid">Amount must be filled and minimum 1$</mat-error>
+    </mat-form-field>
+    <mat-form-field class="example-full-width" appearance="fill">
+        <mat-label>Interest %</mat-label>
+        <input class="inputTag" #interest="ngModel" required type="number" name="interest" matInput
+            placeholder="interest %" ngModel>
+        <mat-error *ngIf="interest.invalid">Interest must be filled</mat-error>
+    </mat-form-field>
+    <mat-form-field class="example-full-width" appearance="fill">
+        <mat-label>Payments Count</mat-label>
+        <input class="inputTag" #paymentsCount="ngModel" min="1" required type="number" name="paymentsCount" matInput
+            placeholder="paymentsCount" ngModel>
+        <mat-error *ngIf="paymentsCount.invalid">Payments Count must be filled</mat-error>
+    </mat-form-field>
+    <div>
+        <button [disabled]="loanForm.invalid || !this.currentAccount" class="actionBtn" type="submit" mat-raised-button
+            color="primary"> save
+            loan ! </button>
+    </div>
+</form>

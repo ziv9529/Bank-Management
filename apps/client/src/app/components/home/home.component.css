@@ -1,5 +1,30 @@
 .divStyle {
-    height: 110px;
-    width: 310px;
+    display: inline-flex;
+    padding: 5px;
+    margin: 15px;
+    height: 210px;
+    width: 250px;
     border: 1px solid black;
+    text-align: center;
+    background-color: bisque;
+}
+
+.matErrorAccount {
+    margin-left: 20px;
+    margin-top: 10px;
+    width: 200px;
+}
+
+.divStyle>div {
+    flex: auto;
+}
+
+.mainDivActions {
+    width: 100%;
+}
+
+.submitBtn {
+    display: block;
+    margin-top: 15px;
+    margin-left: 17px;
 }

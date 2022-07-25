@@ -32,8 +32,12 @@ export class ActionsComponent implements OnInit {
   }
 
   isLoan(action: string): boolean {
-    if (action === 'deposit' || action === 'withdraw') return false
-    else return true
+    if (action === 'loan') return true
+    else return false
+  }
+  isDepOrWith(action: string): boolean {
+    if (action === 'deposit' || action === 'withdraw') return true
+    else return false
   }
 }
 

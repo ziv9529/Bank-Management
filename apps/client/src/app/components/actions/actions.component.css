@@ -1,0 +1,15 @@
+.form-group input {
+    display: block;
+    position: relative;
+    flex: auto;
+    min-width: 0;
+    width: 180px;
+    background-color: rgba(0, 0, 0, .04);
+    margin: 10px;
+    padding: 10px;
+}
+
+.actionHeader {
+    margin: 10px;
+    pad: 6px;
+}
