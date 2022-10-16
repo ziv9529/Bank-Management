@@ -1,0 +1,14 @@
+.actionBtn {
+    margin: 10px;
+    height: 44px;
+    padding: 5px;
+    display: inline-block;
+}
+
+.example-form {
+    display: flex;
+}
+
+.inputTag {
+    margin-top: 5px;
+}

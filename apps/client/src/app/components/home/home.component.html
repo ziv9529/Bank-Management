@@ -1,0 +1,40 @@
+<div>
+    <h2>enter account number and press the button to get his actions in the account</h2>
+    <form (submit)="onSubmit(accountForm)" class="example-form" #accountForm="ngForm">
+        <mat-form-field class="example-full-width" appearance="fill">
+            <mat-label>Account Number</mat-label>
+            <input #accountNumber="ngModel" minlength="2" required type="number" name="accountNumber" matInput
+                placeholder="Account Number" ngModel>
+            <mat-error class="matErrorAccount" *ngIf="accountNumber.invalid">account number must be filled</mat-error>
+        </mat-form-field>
+        <button [disabled]="accountNumber.invalid" class="submitBtn" type="submit" mat-raised-button color="primary">get
+            account actions</button>
+        <mat-error class="matErrorAccount" *ngIf="actionsResult?.length === 0">no results</mat-error>
+    </form>
+</div>
+<div *ngIf="actionsResult?.length > 0">
+    <div class="mainDivActions">
+        <h1>Account Number: {{actionsResult[0].account_number}}</h1>
+        <h1>Account Actions: </h1>
+        <div class="divStyle" *ngFor="let r of actionsResult">
+            <div *ngIf="r?.actionType?.deposit">
+                <h3>Deposit</h3>
+                <p>Amount: {{r?.actionType?.deposit?.amount | currency }}</p>
+                <p>Date: {{r?.actionType?.deposit?.date | date}}</p>
+            </div>
+            <div *ngIf="r?.actionType?.withdraw">
+                <h3>Withdraw</h3>
+                <p>Amount: {{r?.actionType?.withdraw?.amount | currency}}</p>
+                <p>Date: {{r?.actionType?.withdraw?.date | date}}</p>
+            </div>
+            <div *ngIf="r?.actionType?.loan">
+                <h3>Loan</h3>
+                <p>Amount: {{r?.actionType?.loan?.amount | currency}}</p>
+                <p>Date: {{r?.actionType?.loan?.loanDate | date}}</p>
+                <p>Payments Count: {{r?.actionType?.loan?.interest }}</p>
+                <p>Interest: {{r?.actionType?.loan?.interest |percent }}</p>
+            </div>
+        </div>
+    </div>
+
+</div>
