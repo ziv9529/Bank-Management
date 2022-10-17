@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { FormControl, FormGroup, NgForm, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-actions',
@@ -9,35 +9,26 @@ import { FormControl, FormGroup, Validators } from '@angular/forms';
 export class ActionsComponent implements OnInit {
   public actions: string[]
   public currentAction: string = ''
-  public currentAccount:number
+  public currentAccount: number
   constructor() {
     this.actions = ["deposit", "withdraw", "loan"]
   }
 
   ngOnInit(): void {
   }
-  actionform = new FormGroup({
-    action: new FormControl('', Validators.required),
-    accounNumber: new FormControl('', Validators.required),
-  });
-  changeAction(val: any) {
-    this.currentAction = val
-  }
-  updateAccountNumber(val: any) {
-    this.currentAccount = val
-  }
-
-  submit() {
-    console.log(this.actionform.value);
-  }
-
   isLoan(action: string): boolean {
     if (action === 'loan') return true
     else return false
   }
-  isDepOrWith(action: string): boolean {
+  isDepOrWithdraw(action: string): boolean {
     if (action === 'deposit' || action === 'withdraw') return true
     else return false
+  }
+  onSubmitAction(form: NgForm) {
+    if (form.invalid || !form) return
+    console.log(form.value);
+    this.currentAccount = form?.value?.accounNumber
+    this.currentAction = form?.value?.accountAction
   }
 }
 

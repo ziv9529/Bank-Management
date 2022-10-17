@@ -17,3 +17,12 @@
 .actionsDiv {
     margin: 20px;
 }
+
+.example-form .mat-form-field+.mat-form-field {
+    margin-left: 8px;
+}
+
+.submitBtn {
+    margin-top: 10px;
+    margin-left: 5px;
+}
