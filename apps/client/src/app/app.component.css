@@ -1,12 +1,18 @@
-body {
-    margin: 10px;
-    padding: 10px;
-    margin: auto;
-    background-color: red;
+.mainDiv {
+    background-color: #F5F5F5;
+    display: flex;
+    padding: 0 20px;
+    align-items: center;
+}
 
+.mainDiv .navBtn,
+h1 {
+    margin-right: 20px;
 }
 
 .navBtn {
-    margin-right: 10px;
-    margin-bottom: 15px;
+    width: 160px;
+    height: max-content;
+    color: black;
+    font-size: larger;
 }

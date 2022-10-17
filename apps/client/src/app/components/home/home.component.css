@@ -6,7 +6,8 @@
     width: 250px;
     border: 1px solid black;
     text-align: center;
-    background-color: bisque;
+    background-color: #F5F5F5;
+    border-radius: 0.75rem;
 }
 
 .matErrorAccount {
@@ -21,10 +22,28 @@
 
 .mainDivActions {
     width: 100%;
+    margin: 20px;
+}
+
+.mainDivActions h2 {
+    font-weight: 400;
 }
 
 .submitBtn {
     display: block;
     margin-top: 15px;
     margin-left: 17px;
+}
+
+.homeDiv {
+    margin: 20px;
+}
+
+#homeHeader {
+    font-weight: 400;
+}
+
+#accountFillErr {
+    margin-left: 0;
+    margin-top: 0;
 }

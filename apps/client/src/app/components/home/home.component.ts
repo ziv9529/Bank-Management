@@ -26,7 +26,9 @@ export class HomeComponent implements OnInit {
           this.resultsError = false
         },
         next: (res: any) => {
-          this.actionsResult = res
+          this.actionsResult = res.reverse();
+          console.log(this.actionsResult);
+
         },
         error: (err) => {
           console.log(err);
